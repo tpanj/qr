@@ -3,7 +3,6 @@ module qr
 import strings
 
 #flag -I @VMODROOT/lib
-#include "ver.c"
 #include "qrcodegen.c"
 
 const (
@@ -31,7 +30,7 @@ pub fn text_conf(text string, c CodeConfig) (string, []byte) {
 		mut sb := strings.new_builder(max_len)
 		mut cubes_big := ["\u2588\u2588", "  "]
 		mut cubes := ['\u2588', '\u2584', '\u2580', ' ']
-		if C.os_version() < 600_000_000 {
+		if os_version() < 600_000_000 {
 			cubes_big[0] = "\xDB\xDB"
 			cubes = ['\xDB', '\xDC', '\xDF', ' ']
 		}
@@ -90,7 +89,16 @@ pub fn text(t string) string {
 	return code
 }
 
-fn C.os_version() u32
+// This is function to check the OS versions (especially Windows).
+// To know if Unicode is supported or not, for using a different code page.
+fn C.GetVersion() int
+fn os_version() int {
+     $if windows {
+         return C.GetVersion()
+     } $else {
+         return 666888666
+     }
+}
 
 fn C.qrcodegen_getSize(code &char) int
 fn C.qrcodegen_getModule(code &char, x int, y int) bool
