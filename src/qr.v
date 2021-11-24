@@ -10,7 +10,7 @@ import qr	// Main library usage
 fn main() {
 	mut fp := flag.new_flag_parser(os.args)
 	fp.application('qr')
-	fp.version('v1.0.0')
+	fp.version('v1.0.2')
 	fp.description('The utility for genereating QR code')
 	fp.skip_executable()
 	inverse     := fp.bool('inverse',     `i`, false, 'inverse colors '

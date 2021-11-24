@@ -1,7 +1,7 @@
 Module {
 	name: 'qr'
 	description: 'Cross platform, zero dependency module and console utility for genereating QR code'
-	version: '1.0.0'
+	version: '1.0.2'
 	repo_url: 'https://github.com/tpanj/qr'
         vcs: 'git'
 	dependencies: []
