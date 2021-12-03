@@ -1,3 +1,10 @@
+# Install
+
+With use [`scoop`](https://scoop.sh) command-line installer for Windows:
+```
+scoop install qr
+```
+
 # QR module for vlang
 
 ![Usage](https://github.com/tpanj/bash4all-media/raw/main/media/qr.png)
